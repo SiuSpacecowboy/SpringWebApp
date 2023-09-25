@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hero</title>
+</head>
+<body>
+<p th:text="${player.getClassType()}"></p>
+<p th:text="${player.getNickname()}"></p>
+<p th:text="${player.getAge()}"></p>
+<p th:text="${player.getEmail()}"></p>
+<p th:text="${player.getId()}"></p>
+<a th:href="@{/rpg/{id}/edit(id=${player.getId()})}">Edit Player</a>
+<br/>
+<br/>
+<a th:href="@{/rpg/{id}/delete(id=${player.getId()})}">Delete Player</a>
+<br/>
+<br/>
+<hr/>
+<a href="/rpg/all_players">To All Players</a>
+<!--<form th:method="post" th:action="@{/rpg/{id}(id=${hero.getId()})}">
+&lt;!&ndash;    <input type="hidden" name="_method" value="delete">&ndash;&gt;
+    <input type="submit" value="DELETE">
+</form>-->
+</body>
+</html>

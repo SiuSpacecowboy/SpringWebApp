@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Heroes!</title>
+</head>
+<body>
+<div th:each="player : ${allPlayers}">
+    <a th:href="@{/rpg/{id}(id=${player.getId()})}" th:text="${player.getNickname() + ', ' + player.getAge()}">
+        user
+    </a>
+</div>
+<hr/>
+<a href="/rpg/newPlayer">++++++++++++++++++++++Add New Player++++++++++++++++++++++</a>
+</body>
+</html>

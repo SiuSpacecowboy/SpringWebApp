@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Hero</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/rpg/all_players}" th:object="${player}">  <!-- method="POST" action="/rpg/all_heroes" No THYMELEAF -->
+    <label for="classType">Enter class: </label>
+    <input name="classType" type="text" th:field="*{classType}" id="classType"/> <!-- th:field="*{classType}"--> <!--THYMELEAF -->
+    <div style="color:red" th:if="${#fields.hasErrors('classType')}" th:errors="*{name}">Class Error</div>
+    <br/>
+    <label for="nickname">Enter nickname: </label>
+    <input name="nickname" type="text" th:field="*{nickname}"  id="nickname"/> <!--Поле "name" отвечает за обращение к данной сущности через например @RequestParam --> <!--th:field="*{nickname}"-->
+    <div style="color:red" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nick Error</div>
+    <br/>
+    <label for="age">Enter age: </label>
+    <input name="age" type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+    <br/>
+    <label for="email">Enter email: </label>
+    <input name="email" type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    <br/>
+    <input type="submit" value="Add New Player"/>
+</form>
+</body>
+</html>

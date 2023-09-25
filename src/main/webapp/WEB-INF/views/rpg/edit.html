@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit_Nickname</title>
+</head>
+<body>
+<form method="post" th:action="@{/rpg/{id}(id=${player.getId()})}" th:object="${player}">
+<!--    <input type="hidden" name="_method" value="patch">-->
+    <label for="newNickname">Rename your characters:</label>
+    <input name="setNickname" type="text" th:field="*{nickname}" id="newNickname"/>
+    <div style="color:red" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nick Error</div>
+    <br/>
+    <label for="newAge">Enter new Age:</label>
+    <input name="setAge" type="text" th:field="*{age}" id="newAge"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+    <br/>
+    <label for="newEmail">Enter new Email:</label>
+    <input name="setEmail" type="text" th:field="*{email}" id="newEmail"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    <br/>
+    <input type="submit" value="OK">
+</form>
+<br/>
+<a th:href="@{/rpg/{id}(id=${player.getId()})}">Cancel Change</a>
+</body>
+</html>
